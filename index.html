@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+
+var airplaneIcon = L.icon({
+    iconUrl: 'airplane.png', // url that links to the icon image file, saved in the same folder as the current page 
+    iconSize:     [38, 38], // size of the icon image in pixels
+    iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+    popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+
+var marker1 = L.marker([44.98867316779479, -93.27584798584789], {icon: airplaneIcon}).addTo(map);
+var marker2 = L.marker([40.830403499801264, -72.94195558604392], {icon: airplaneIcon}).addTo(map);
+var marker3 = L.marker([29.98503565306994, -89.1306233852758], {icon: airplaneIcon}).addTo(map);
+
+var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Minneapolis_Skyline_looking_south.jpg/432px-Minneapolis_Skyline_looking_south.jpg" alt="Minneapolis" width="250">';
+var pic2 = '<img src="https://www.agoda.com/wp-content/uploads/2024/04/central-park-new-york-usa-1244x700.jpg" alt="New York City" width="250">';
+var pic3 = '<img src="https://www.travelandleisure.com/thmb/gFNuvv5mN5NYja8yYamFofjTo-I=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TAL-new-oreleans-WRKLIFEBLNC0924-af75e51f9dca4b7db04a650ac49728af.jpg" alt="New Orleans" width="250">';
+
+marker1.bindPopup('<p style="color:Fuchsia; font-weight:italic"> Traveled to Minneapolis Summer 2021 </p>' + pic1);
+marker2.bindPopup('<p style="color:Purple; font-weight:italic"> Traveled to New York City Fall 2021 </p>' + pic2);
+marker3.bindPopup('<p style="color:Plum; font-weight:italic"> Traveled to New Orleans Summer 2023 </p>' + pic3);
+        
+	</script>
+   </body>
+</html>
